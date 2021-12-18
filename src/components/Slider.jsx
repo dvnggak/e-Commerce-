@@ -7,7 +7,6 @@ const Container = styled.div`
     width: 100%;
     height: 100vh;
     display: flex;
-    background-color: #FFC600;
     position: relative;
 `
 
@@ -29,12 +28,43 @@ const Arrow = styled.div`
     opacity: 0.7;
 `
 
+const Wrapper = styled.div`
+    height: 100%;
+`
+
+const  Slide = styled.div`
+    display: flex;
+    align-items: center;
+`
+const  ImgContainer = styled.div`
+    flex: 1;
+
+`
+
+const Img = styled.img`
+
+`
+
+const  InfoContainer = styled.div`
+    flex: 1;
+`
+
 export default function Slider() {
     return (
         <Container>
             <Arrow direction="left" >
                 <ArrowLeftOutlinedIcon/>
             </Arrow>
+            <Wrapper>
+                <Slide>
+                    <ImgContainer>
+                        <Img src='https://i.ibb.co/zSw5dCk/1.png'/>
+                    </ImgContainer>
+                    <InfoContainer>
+                        
+                    </InfoContainer>
+                </Slide>
+            </Wrapper>
             <Arrow direction="right" >
                 <ArrowRightOutlinedIcon/>
             </Arrow>

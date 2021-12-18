@@ -20,4 +20,22 @@ export const sliderItems = [
         desc: "GET IT NOW ! AND EARN 45% OFF FOR NEW ARRIVALS",
         bg: "fbf0f4",
     },
+];
+
+export const categories = [
+    {
+        id: 1,
+        img: "",
+        title: "SHIRT STYLE",
+    },
+    {
+        id: 2,
+        img: "",
+        title: "LOUNGEWEAR LOVE",
+    },
+    {
+        id: 3,
+        img: "",
+        title: "LIGHT JACKETS",
+    },
 ]

@@ -25,17 +25,17 @@ export const sliderItems = [
 export const categories = [
     {
         id: 1,
-        img: "",
+        img: "https://i.ibb.co/rt6zVGs/faith-yarn-hgt-Wvsq5e2c-unsplash-1.jpg",
         title: "SHIRT STYLE",
     },
     {
         id: 2,
-        img: "",
+        img: "https://i.ibb.co/ZXwgj1T/mathilde-langevin-sg-I7qgts-TQ8-unsplash.jpg",
         title: "LOUNGEWEAR LOVE",
     },
     {
         id: 3,
-        img: "",
+        img: "https://i.ibb.co/XjzMNcD/bhavya-shah-z-K6g3-WW09-M-unsplash-1.jpg",
         title: "LIGHT JACKETS",
     },
 ]

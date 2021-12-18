@@ -11,7 +11,7 @@ export const sliderItems = [
         img: "https://i.ibb.co/G7fpHTj/fococlipping-20211218-143818.png",
         title: "NEW YEAR SALE",
         desc: "GET IT NOW ! AND EARN 45% OFF FOR NEW ARRIVALS",
-        bg: "fcf1ed",
+        bg: "F5D344",
     },
     {
         id: 3,

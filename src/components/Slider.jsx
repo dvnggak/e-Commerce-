@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import ArrowLeftOutlinedIcon from '@mui/icons-material/ArrowLeftOutlined';
 import ArrowRightOutlinedIcon from '@mui/icons-material/ArrowRightOutlined';
+import { sliderItems } from '../data';
 
 const Container = styled.div`
     width: 100%;
@@ -33,7 +34,8 @@ const Arrow = styled.div`
 const Wrapper = styled.div`
     height: 100%;
     display: flex;
-    transform: translateX(0vw);
+    transition: all 1.5s ease;
+    transform: translateX(${(props)=>props.slideIndex * -100}vw);
 `
 
 const  Slide = styled.div`
@@ -77,8 +79,14 @@ const Button = styled.button`
 
 export default function Slider() {
 
-    const handleClick = (direction) => {
+    const [slideIndex, setSlideIndex] = useState(0)
 
+    const handleClick = (direction) => {
+        if (direction ==="left") {
+            setSlideIndex(slideIndex > 0 ? slideIndex-1 : 2)
+        } else {
+            setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0)
+        }
     }
 
     return (
@@ -86,37 +94,19 @@ export default function Slider() {
             <Arrow direction="left" onClick={() => handleClick("left")}>
                 <ArrowLeftOutlinedIcon/>
             </Arrow>
-            <Wrapper>
-                <Slide bg="f5fafd">
-                    <ImgContainer>
-                        <Img src='https://i.ibb.co/zSw5dCk/1.png'/>
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>END YEAR SALE</Title>
-                        <Detail>GET IT NOW ! AND EARN 45% OFF FOR NEW ARRIVALS</Detail>
-                        <Button>SHOW NOW </Button>
-                    </InfoContainer>
-                </Slide>
-                <Slide bg="fcf1ed">
-                    <ImgContainer>
-                        <Img src='https://i.ibb.co/zSw5dCk/1.png'/>
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>NEW YEAR SALE</Title>
-                        <Detail>GET IT NOW ! AND EARN 45% OFF FOR NEW ARRIVALS</Detail>
-                        <Button>SHOW NOW </Button>
-                    </InfoContainer>
-                </Slide>
-                <Slide bg="fbf0f4">
-                    <ImgContainer>
-                        <Img src='https://i.ibb.co/zSw5dCk/1.png'/>
-                    </ImgContainer>
-                    <InfoContainer>
-                        <Title>BEST SALE</Title>
-                        <Detail>GET IT NOW ! AND EARN 45% OFF FOR NEW ARRIVALS</Detail>
-                        <Button>SHOW NOW </Button>
-                    </InfoContainer>
-                </Slide>
+            <Wrapper slideIndex={slideIndex} >
+                {sliderItems.map(item=>(
+                    <Slide bg={item.bg}>
+                        <ImgContainer>
+                            <Img src={item.img}/>
+                        </ImgContainer>
+                        <InfoContainer>
+                            <Title>{item.title}</Title>
+                            <Detail>{item.desc}</Detail>
+                            <Button>SHOW NOW </Button>
+                        </InfoContainer>
+                    </Slide>
+                ))}
             </Wrapper>
             <Arrow direction="right" onClick={() => handleClick("right")} >
                 <ArrowRightOutlinedIcon/>

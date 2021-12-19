@@ -43,34 +43,34 @@ export const categories = [
 export const popularProducts = [
     {
         id: 1,
-        img: ""
+        img: "https://i.ibb.co/8cSH4zy/1.jpg"
     },
     {
         id: 2,
-        img: ""
+        img: "https://i.ibb.co/vqkrP8Y/2.jpg"
     },
     {
         id: 3,
-        img: ""
+        img: "https://i.ibb.co/b5tjm9L/3.jpg"
     },
     {
         id: 4,
-        img: ""
+        img: "https://i.ibb.co/GcQ2dNN/4.jpg"
     },
     {
         id: 5,
-        img: ""
+        img: "https://i.ibb.co/nP8BpB6/5.jpg"
     },
     {
         id: 6,
-        img: ""
+        img: "https://i.ibb.co/r4KTcYf/6.jpg"
     },
     {
         id: 7,
-        img: ""
+        img: "https://i.ibb.co/dp8MyGQ/7.jpg"
     },
     {
         id: 8,
-        img: ""
+        img: "https://i.ibb.co/HrRwbCZ/8.jpg"
     },
 ]

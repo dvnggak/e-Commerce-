@@ -71,7 +71,7 @@ export default function Navbar() {
                 </Left>
                 <Center>
                     <Logo>
-                        Isyaratin.id
+                        Dev Tech.
                     </Logo>
                 </Center>
                 <Right>

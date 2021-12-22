@@ -97,10 +97,41 @@ const ProductPrice = styled.div`
     font-size: 30px;
     font-weight: 300;
 `
-
+const Hr = styled.hr`
+    background-color: #eee;
+    border: none;
+    height: 2px;
+`
 
 const Summary = styled.div`
     flex: 1;
+    border: 0.5px solid lightgray;
+    border-radius: 15px;
+    padding: 20px;
+    height: 50vh;   
+`
+const SummaryTitle = styled.h1`
+    font-weight: 300;
+`
+const SummaryItem = styled.div`
+    margin: 30px 0px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: ${props=> props.type === "total" && "500"};
+    font-size: ${props=> props.type === "total" && "25px"};
+`
+const SummaryItemText = styled.span`
+
+`
+const SummaryItemPrice = styled.span`
+
+`
+const Button = styled.button`
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-weight: 800;
 `
 
 export default function Cart() {
@@ -139,8 +170,47 @@ export default function Cart() {
                                 <ProductPrice>$ 50</ProductPrice>
                             </PriceDetail>
                         </Product>
+                        <Hr/>
+                        <Product>
+                            <ProductDetail>
+                                <Image src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" />
+                                <Details>
+                                    <ProductName> <b>Product :</b> Philz Tees Men </ProductName>
+                                    <ProductId> <b>ID :</b> 14101976OktMon </ProductId>
+                                    <ProductColor color='gray' />
+                                    <ProductSize> <b>Size :</b> M </ProductSize>
+                                </Details>
+                            </ProductDetail>
+                            <PriceDetail>
+                                <ProductAmountContainer>
+                                    <Add/>
+                                    <ProductAmount>1</ProductAmount>
+                                    <Remove/>
+                                </ProductAmountContainer>
+                                <ProductPrice>$ 17</ProductPrice>
+                            </PriceDetail>
+                        </Product>
                     </Info>
-                    <Summary></Summary>
+                    <Summary>
+                        <SummaryTitle>Order Summary</SummaryTitle>
+                        <SummaryItem>
+                            <SummaryItemText>Subtotal</SummaryItemText>
+                            <SummaryItemPrice>$ 180</SummaryItemPrice>
+                        </SummaryItem>
+                        <SummaryItem>
+                            <SummaryItemText>Estimated Shipping</SummaryItemText>
+                            <SummaryItemPrice>$ 12.4</SummaryItemPrice>
+                        </SummaryItem>
+                        <SummaryItem>
+                            <SummaryItemText>Shipping Discount</SummaryItemText>
+                            <SummaryItemPrice>$ -12.4</SummaryItemPrice>
+                        </SummaryItem>
+                        <SummaryItem type="total">
+                            <SummaryItemText>Total</SummaryItemText>
+                            <SummaryItemPrice>$ 180</SummaryItemPrice>
+                        </SummaryItem>
+                        <Button>Checkout Now</Button>
+                    </Summary>
                 </Bottom> 
             </Wrapper>
             <Footer/>

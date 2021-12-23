@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { mobile } from '../responsive'
 
 const Container = styled.div`
     width: 100vw;
@@ -19,6 +20,7 @@ const Wrapper = styled.div`
     padding: 20px;
     background-color: white;
     border-radius: 25px;
+    ${mobile({ width: "70%"})};
 `
 const Title = styled.h1`
     font-size: 25px;
@@ -33,6 +35,7 @@ const Input = styled.input`
     min-width: 40%;
     margin: 20px 10px 0px 0px;
     padding: 10px;
+    ${mobile({ margin: "20px 9px 0px 3px"})};
 `
 const Agreement = styled.span`
     fon-size: 12px;
@@ -47,6 +50,7 @@ const Button = styled.button`
     font-weight: 500;
     cursor: pointer;
     border-radius: 15px;
+    ${mobile({ width: "50%"})};
 `
 
 export default function Register() {

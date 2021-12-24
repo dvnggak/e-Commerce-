@@ -24,7 +24,11 @@ const CartOrderSchema = new mongoose.Schema(
         address: {
             type: Object,
             required: true,
-        }
+        },
+        status: {
+            type: String,
+            default: "Pending",
+        },
     },
     {timestamps: true}
 );

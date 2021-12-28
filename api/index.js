@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const dotenv = require('dotenv')
 const app = express();
 
-const authRoute = require('./routes/auth')
-const userRoute = require('./routes/user')
-const productRoute = require('./routes/product')
-const cartRoute = require('./routes/cart')
-const orderRoute = require('./routes/order')
+const authRoute = require('./routes/auth');
+const userRoute = require('./routes/user');
+const productRoute = require('./routes/product');
+const cartRoute = require('./routes/cart');
+const orderRoute = require('./routes/order');
 
 dotenv.config();
 

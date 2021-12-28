@@ -11,7 +11,7 @@ const verifyToken = (req, res, next) => {
         })
     } else {
         return res.status(401).json("Not Authenticated")
-    }
+    };
 };
 
 const verifyTokenAndAuthorization = (req,res,next) => {

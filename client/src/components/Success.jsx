@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { useSelector } from 'react-redux'
 export default function Success() {
@@ -10,8 +10,19 @@ export default function Success() {
     const [orderId, setOrderId] = useState(null);
 
     return (
-        <div>
-            
-        </div>
+        <div
+        style={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        {orderId
+          ? `Order has been created successfully. Your order number is ${orderId}`
+          : `Successfull. Your order is being prepared...`}
+        <button style={{ padding: 10, marginTop: 20 }}>Go to Homepage</button>
+      </div>
     )
 }

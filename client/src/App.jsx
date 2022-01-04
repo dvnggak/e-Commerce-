@@ -1,19 +1,15 @@
 import React from 'react'
-import { Router, Routes, Route } from "react-router-dom";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Pay from './components/Pay';
 import Success from './components/Success';
 
 export default function App() {
     return (
-        <Router>
+        <BrowserRouter>
             <Routes>
-                <Route path="/pay">
-                    <Pay />
-                </Route>
-                <Route path="/success">
-                    <Success />
-                </Route>
+                <Route exact path="/pay" element={<Pay/>}/>
+                <Route exact path="/success" element={<Success/>}/>
             </Routes>
-        </Router>
+        </BrowserRouter>
     )
 }

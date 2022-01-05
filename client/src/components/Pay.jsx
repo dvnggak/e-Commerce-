@@ -2,9 +2,9 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import StripeCheckout from 'react-stripe-checkout'
 
-import axios from 'axios'
+const axios = require('axios')
 
-const KEY = "pk_test_51KBzbXBZ8OdDCVGbsRMXNCNWX7dkJ6X0rYO3SJsECM5pesLfq8tyDzbhmQ3HzUermrDamIW6Dq8c9yJt8MxjTyXH00PKdLkt7z"
+const KEY = "pk_test_51KBzbXBZ8OdDCVGbTnYrPmUGlyscekQaMesUx5ZuZslLDgb9eZRj2y96Ls0vHRlHuNQp9HY41M5oBlggEk172Ztv00YUy7S64i"
 
 export default function Pay() {
 
@@ -21,7 +21,7 @@ export default function Pay() {
                     'http://localhost:5000/api/checkout/payment', 
                     {
                         tokenId:stripeToken.id,
-                        amount: 2000,
+                        amount:2000,
                     }
                 );
                 console.log(res.data)

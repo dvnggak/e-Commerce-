@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import StripeCheckout from 'react-stripe-checkout'
 
 const axios = require('axios')
@@ -8,7 +9,8 @@ const KEY = "pk_test_51KBzbXBZ8OdDCVGbTnYrPmUGlyscekQaMesUx5ZuZslLDgb9eZRj2y96Ls
 
 export default function Pay() {
 
-    const [stripeToken, setStripeToken] = useState(null)
+    const [stripeToken, setStripeToken] = useState(null);
+    const history = useNavigate()
 
     const onToken = (token) => {
         setStripeToken(token)
@@ -25,12 +27,13 @@ export default function Pay() {
                     }
                 );
                 console.log(res.data)
+                history("/success")
             } catch (error) {
                 console.log(error)
             }
         };
         stripeToken && makeRequest()
-    }, [stripeToken]);
+    }, [stripeToken, history]);
 
     return (
         <div style={{
@@ -39,7 +42,9 @@ export default function Pay() {
             alignItems: "center",
             justifyContent: "center",
         }}>
-            <StripeCheckout 
+            {stripeToken ? (<span>Processing, Hold On a Moment</span>) : (
+                
+                <StripeCheckout 
                 name='Dev Tech'
                 image='https://i.ibb.co/RHDhb5r/9ccf7b00b9933758d84c8f6b2bf9185f.webp'
                 billingAddress
@@ -48,7 +53,7 @@ export default function Pay() {
                 amount={2000}
                 token={onToken}
                 stripeKey={KEY}
-             >
+                >
                 <button style={{
                     border: "none",
                     width: 120,
@@ -62,6 +67,7 @@ export default function Pay() {
                     Pay Now
                 </button>
             </StripeCheckout>
+        )}
         </div>
     )
 }

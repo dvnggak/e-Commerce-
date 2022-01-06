@@ -10,7 +10,8 @@ const Container = styled.div`
     justify-content: space-between;
 `
 
-export default function Products() {
+export default function Products({cat,filters,sort}) {
+    console.log(cat,filters,sort)
     return (
         <Container>
             {popularProducts.map(item => (

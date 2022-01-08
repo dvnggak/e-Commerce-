@@ -112,6 +112,9 @@ export default function Product() {
     const id = location.pathname.split("/")[2];
 
     const [product, setProduct] = useState({});
+    const [quantity, setQuantity] = useState(1);
+    const [color, setColor] = useState("");
+    const [size, setSize] = useState("");
 
     useEffect(() => {
         const getProduct = async () => {
@@ -122,6 +125,14 @@ export default function Product() {
         };
         getProduct();
     }, [id]);
+
+    const handleQuantity = (type) => {
+        if (type === "decrease") {
+           quantity > 1 && setQuantity(quantity - 1)
+        } else {
+            setQuantity(quantity + 1)
+        }
+    }
 
     return (
         <Container>
@@ -139,12 +150,12 @@ export default function Product() {
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
                             {product.color?.map((c) => (
-                                <FilterColor color={c} key={c} />
+                                <FilterColor color={c} key={c} onClick={() => setColor(c)} />
                             ))}
                         </Filter>
                         <Filter>
                             <FilterTitle>Size</FilterTitle>
-                            <FilterSize>
+                            <FilterSize onChange={(e) => setSize(e.target.value)}>
                                 {product.size?.map((s) => (
                                     <FilterSizeOption key={s} >{s}</FilterSizeOption>
                                 ))}
@@ -153,9 +164,9 @@ export default function Product() {
                     </FilterContainer>
                     <AddContainer>
                         <AmountContainer>
-                            <Remove/>
-                            <Amount>1</Amount>
-                            <Add/>
+                            <Remove onClick={() => handleQuantity("decrease")}/>
+                            <Amount>{quantity}</Amount>
+                            <Add onClick={() => handleQuantity("increase")}/>
                         </AmountContainer>
                         <Button>Add to Cart</Button>
                     </AddContainer>

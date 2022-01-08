@@ -132,24 +132,22 @@ export default function Product() {
                     <Image src={product.img} />
                 </ImgContainer>
                 <InfoContainer>
-                    <Title>Denim Jumpsuit</Title>
-                    <Desc>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti porro magni dolor iure, ad provident in ex, autem reiciendis beatae quisquam nobis illo aspernatur rerum. Inventore sint vero dolorem similique eius laudantium placeat quaerat quas error consequuntur? Blanditiis, harum veritatis!</Desc>
-                    <Price>$ 25</Price>
+                    <Title>{product.title}</Title>
+                    <Desc>{product.desc}</Desc>
+                    <Price>$ {product.price}</Price>
                     <FilterContainer>
                         <Filter>
                             <FilterTitle>Color</FilterTitle>
-                            <FilterColor color="black" />
-                            <FilterColor color="darkblue" />
-                            <FilterColor color="gray" />
+                            {product.color?.map((c) => (
+                                <FilterColor color={c} key={c} />
+                            ))}
                         </Filter>
                         <Filter>
                             <FilterTitle>Size</FilterTitle>
                             <FilterSize>
-                                <FilterSizeOption>XS</FilterSizeOption>
-                                <FilterSizeOption>S</FilterSizeOption>
-                                <FilterSizeOption>M</FilterSizeOption>
-                                <FilterSizeOption>L</FilterSizeOption>
-                                <FilterSizeOption>XL</FilterSizeOption>
+                                {product.size?.map((s) => (
+                                    <FilterSizeOption key={s} >{s}</FilterSizeOption>
+                                ))}
                             </FilterSize>
                         </Filter>
                     </FilterContainer>

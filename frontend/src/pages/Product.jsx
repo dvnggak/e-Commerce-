@@ -132,6 +132,10 @@ export default function Product() {
         } else {
             setQuantity(quantity + 1)
         }
+    };
+
+    const handleClick = () => {
+        // UPDATE CART
     }
 
     return (
@@ -168,7 +172,7 @@ export default function Product() {
                             <Amount>{quantity}</Amount>
                             <Add onClick={() => handleQuantity("increase")}/>
                         </AmountContainer>
-                        <Button>Add to Cart</Button>
+                        <Button onClick={handleClick}>Add to Cart</Button>
                     </AddContainer>
                 </InfoContainer>
             </Wrapper>

@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import { login } from '../redux/apiCalls'
 import { mobile } from '../responsive'
-
+import { useDispatch } from 'react-redux'
+ 
 const Container = styled.div`
     width: 100vw;
     height: 100vh;
@@ -61,8 +63,11 @@ export default function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const dispatch = useDispatch()
+
     const handleClick = (e) => {
         e.preventDefault();
+        login(dispatch, { username, password })
     }
 
     return (

@@ -49,6 +49,10 @@ const Button = styled.button`
     cursor: pointer;
     border-radius: 15px;
     margin: 10px 0px;
+    &:disabled {
+        color: green;
+        cursor: not-allowed;
+    };
     ${mobile({ width: "60%"})};
 `
 const Link = styled.a`
@@ -56,6 +60,9 @@ const Link = styled.a`
     font-size: 15px;
     text-decoration: underline;
     cursor: pointer;
+`
+const Error = styled.span`
+    color: red;
 `
 
 export default function Login() {
@@ -65,7 +72,7 @@ export default function Login() {
 
     const dispatch = useDispatch();
 
-    const [isFetching, error] = useSelector((state) => state.user)
+    const { isFetching, error } = useSelector((state) => state.user);
 
     const handleClick = (e) => {
         e.preventDefault();
@@ -87,6 +94,7 @@ export default function Login() {
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <Button onClick={handleClick} disabled={isFetching} >Sign In</Button>
+                    {error && <Error>Something Went Wrong</Error>}
                     <Link>Forgot Password ?</Link>
                     <Link>Create a New Account</Link>
                 </Form>

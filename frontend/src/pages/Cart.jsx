@@ -165,7 +165,7 @@ export default function Cart() {
                     tokenId: stripeToken,
                     amount: cart.total * 100,
                 });
-                history("/success")
+                history("/success", { data: res.data })
             } catch (error) {
                 
             }

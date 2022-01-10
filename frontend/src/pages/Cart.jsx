@@ -161,16 +161,16 @@ export default function Cart() {
     useEffect(() => {
         const makeRequest = async () => {
             try {
-                const res = await userRequest("/checkout/payment", {
-                    tokenId: stripeToken,
-                    amount: cart.total * 100,
+                const res = await userRequest.post("/checkout/payment", {
+                    tokenId: stripeToken.id,
+                    amount: 500,
                 });
                 history("/success", { data: res.data })
             } catch (error) {
                 
             }
         }
-        makeRequest();
+        stripeToken && makeRequest();
     },[stripeToken,cart.total, history])
 
     return (

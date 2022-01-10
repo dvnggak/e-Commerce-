@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { mobile } from '../responsive'
 
@@ -57,14 +57,28 @@ const Link = styled.a`
 `
 
 export default function Login() {
+    
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handleClick = (e) => {
+        e.preventDefault();
+    }
+
     return (
         <Container>
             <Wrapper>
                 <Title>Sign In </Title>
                 <Form>
-                    <Input placeholder="Username" />
-                    <Input placeholder="Password" />
-                    <Button>Sign In</Button>
+                    <Input 
+                        placeholder="Username" 
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                    <Input 
+                        placeholder="Password" 
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <Button onClick={handleClick} >Sign In</Button>
                     <Link>Forgot Password ?</Link>
                     <Link>Create a New Account</Link>
                 </Form>

@@ -14,7 +14,7 @@ import {
 import Success from "./pages/Success";
 
 const App = () => {
-  const user = true;
+  const user = "false";
 
   return (
     <BrowserRouter>
@@ -24,8 +24,8 @@ const App = () => {
             <Route path="/product/:id" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/success" element={<Success />} />
-            <Route path="/login" element={user ? <Home/> : <Navigate to={<Login/>} replace />} />
-            <Route path="/register" element={user ? <Home/> : <Navigate to={<Register />} replace />} />
+            <Route path="/login" element={user === "true" ? <Home/> : <Login/>} />
+            <Route path="/register" element={user === "true" ? <Home/> : <Register />} />
         </Routes>
     </BrowserRouter>
   );

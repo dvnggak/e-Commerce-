@@ -65,7 +65,7 @@ const Error = styled.span`
     color: red;
 `
 
-export default function Login() {
+const Login = () => {
     
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -102,3 +102,5 @@ export default function Login() {
         </Container>
     )
 }
+
+export default Login;

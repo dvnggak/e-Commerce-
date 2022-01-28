@@ -9,7 +9,7 @@ import { mobile } from '../responsive'
 
 import StripeCheckout from 'react-stripe-checkout'
 import { userRequest } from '../requestMethods'
-import { useNavigate } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
 const KEY = "pk_test_51KBzbXBZ8OdDCVGbTnYrPmUGlyscekQaMesUx5ZuZslLDgb9eZRj2y96Ls0vHRlHuNQp9HY41M5oBlggEk172Ztv00YUy7S64i"
 
@@ -152,7 +152,7 @@ export default function Cart() {
     const cart = useSelector((state) => state.cart);
 
     const [stripeToken, setStripeToken] =  useState(null);
-    const history = useNavigate()
+    const history = useHistory()
 
     const onToken = (token) => {
         setStripeToken(token);

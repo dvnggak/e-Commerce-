@@ -25,21 +25,23 @@ const App = () => {
             <Route path="/product/:id" element={<Product />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/success" element={<Success />} />
-            <Route 
+            <Route
               path="/login" 
-              element={
-                user 
-                  ? <Navigate to="/"/> 
-                  : <Login/>
-                } 
+              element=
+                {
+                  user 
+                  ? <Navigate to="/" replace="true"/> 
+                  : <Login/> 
+                }
               />
-            <Route 
+            <Route
               path="/register" 
-              element={
-                user 
-                  ? <Navigate to="/"/> 
-                  : <Register />
-              } 
+              element=
+                {
+                  user 
+                  ? <Navigate to="/" replace="true"/> 
+                  : <Register/> 
+                }
             />
         </Routes>
     </BrowserRouter>

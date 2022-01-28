@@ -22,7 +22,7 @@ import {
   
   const persistedReducer = persistReducer(persistConfig, userReducer)
 
-export const store = () => configureStore({
+export const store = configureStore({
     reducer: {
         cart: cartReducer,
         user: persistedReducer,

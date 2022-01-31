@@ -26,7 +26,9 @@ export const Login = () => {
                 placeholder='password'
                 onChange={(e) => setPassword(e.target.value)}
             />
-            <button onClick={handleClick} ></button>
+            <button onClick={handleClick}  >
+                Login
+            </button>
         </div>
     );
 };

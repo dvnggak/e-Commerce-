@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from "react-redux"
+import { login } from "../../redux/apiCalls"
 
 export const Login = () => {
 
@@ -10,6 +11,7 @@ export const Login = () => {
 
     const handleClick = (e) => {
         e.preventDefault();
+        login(dispatch, { username, password });
     }
 
     return (

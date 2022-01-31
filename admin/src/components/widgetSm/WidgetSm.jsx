@@ -15,7 +15,7 @@ export default function WidgetSm() {
       } catch {}
     };
     getUsers();
-  },[])
+  },[]);
 
   return (
     <div className="widgetSm">

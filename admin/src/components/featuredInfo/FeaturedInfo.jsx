@@ -13,21 +13,20 @@ export default function FeaturedInfo() {
       try {
         const res = await userRequest.get("orders/income");
         setIncome(res.data);
+        setPercentage((res.data[1].total * 100) / res.data[0].total - 100);
       } catch {}
     }
     getIncome();
   }, []);
-
-  console.log(income);
 
   return (
     <div className="featured">
       <div className="featuredItem">
         <span className="featuredTitle">Revanue</span>
         <div className="featuredMoneyContainer">
-          <span className="featuredMoney">$2,415</span>
+          <span className="featuredMoney">${income[1]?.total}</span>
           <span className="featuredMoneyRate">
-            -11.4 <ArrowDownward  className="featuredIcon negative"/>
+            ${percentage} <ArrowDownward  className="featuredIcon negative"/>
           </span>
         </div>
         <span className="featuredSub">Compared to last month</span>

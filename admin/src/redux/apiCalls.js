@@ -20,3 +20,12 @@ export const getProducts = async (dispatch) => {
         dispatch(getProductFailure())
     }
 } 
+export const deleteProduct = async (id, dispatch) => {
+    dispatch(getProductStart());
+    try {
+        const res = await publicRequest.get("/products");
+        dispatch(getProductSuccess(res.data))
+    } catch (error) {
+        dispatch(getProductFailure())
+    }
+} 

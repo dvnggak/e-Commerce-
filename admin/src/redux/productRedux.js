@@ -8,6 +8,7 @@ export const productSlice = createSlice({
         error: false,
     },
     reducers: {
+        // GET AND FETCH ALL PRODUCTS
         getProductStart: (state) => {
             state.isFetching = true;
             state.error =  false;
@@ -17,6 +18,23 @@ export const productSlice = createSlice({
             state.products = action.payload;
         },
         getProductFailure: (state, action) => {
+            state.isFetching = false;
+            state.error = true;;
+        },
+        // DELETE PRODUCTS
+        deleteProductStart: (state) => {
+            state.isFetching = true;
+            state.error =  false;
+        },
+        deleteProductSuccess: (state, action) => {
+            state.isFetching = false;
+            state.products.splice(
+                state.products.findIndex(
+                    (item) => item._id === action.payload.id
+                ),1
+            );
+        },
+        deleteProductFailure: (state, action) => {
             state.isFetching = false;
             state.error = true;;
         },

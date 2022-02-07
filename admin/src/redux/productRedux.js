@@ -30,7 +30,7 @@ export const productSlice = createSlice({
             state.isFetching = false;
             state.products.splice(
                 state.products.findIndex(
-                    (item) => item._id === action.payload.id
+                    (item) => item._id === action.payload
                 ),1
             );
         },

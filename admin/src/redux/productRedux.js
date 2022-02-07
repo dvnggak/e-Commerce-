@@ -36,7 +36,7 @@ export const productSlice = createSlice({
         },
         deleteProductFailure: (state, action) => {
             state.isFetching = false;
-            state.error = true;;
+            state.error = true;
         },
     },
 });

@@ -16,7 +16,6 @@ export const productSlice = createSlice({
             state.isFetching = false;
             state.products = action.payload;
         },
-        },
         getProductFailure: (state, action) => {
             state.isFetching = false;
             state.error = true;;
@@ -24,7 +23,7 @@ export const productSlice = createSlice({
     },
 });
 
-export const { } = productSlice.actions;
+export const { getProductStart, getProductSuccess, getProductFailure } = productSlice.actions;
 
 export default productSlice.reducer;
 

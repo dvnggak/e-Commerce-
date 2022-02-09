@@ -4,14 +4,35 @@ import Chart from "../../components/chart/Chart"
 import {productData} from "../../dummyData"
 import { Publish } from "@material-ui/icons";
 import { useSelector } from "react-redux";
+import { useMemo, useState } from "react";
 
 export default function Product() {
     const location = useLocation()
     const productId = location.pathname.split("/")[2]
+    const { productStats,setProductStats } = useState([])
 
     const product = useSelector((state) => 
         state.product.products.find((product) => product._id === productId)
     );
+
+    const MONTHS = useMemo(
+        () => [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Agu",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Des",
+        ],
+        []
+    );
+
   return (
     <div className="product">
       <div className="productTitleContainer">
